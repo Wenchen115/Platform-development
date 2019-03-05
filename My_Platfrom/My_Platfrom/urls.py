@@ -20,7 +20,6 @@ from personal import views
 urlpatterns = [
     path('index/', views.index),
     path('', views.index),  # 当url后面不输入路径的时候，也可以进入登陆页面
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('accounts/login/', views.index),
     path('manage/', views.manage),

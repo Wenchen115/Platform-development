@@ -27,7 +27,8 @@ def index(request):
         if username == "" or password == "":
             return render(request, "index.html", {"error": "用户名或密码为空"})
         user = auth.authenticate(username=username, password=password)
-        if user is None:
+        print('user------>>>',user)
+        if user is None:  # 如果用户名或者密码错误，那么后台返回都是none
             return render(request, "index.html", {"error": "用户名或者密码错误"})
         else:
             auth.login(request, user)  # 记录用户的登陆状态
