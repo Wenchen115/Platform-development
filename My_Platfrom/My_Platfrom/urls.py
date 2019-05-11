@@ -22,7 +22,9 @@ urlpatterns = [
     path('', views.index),  # 当url后面不输入路径的时候，也可以进入登陆页面
     path('admin/', admin.site.urls),
     path('accounts/login/', views.index),
-    path('manage/', views.manage),
+    path('project/', views.project_manage),
+    path('module/', views.module_manage),
+    path('help/', views.help_manage),
     path('logout/', views.logout)
 ]
 

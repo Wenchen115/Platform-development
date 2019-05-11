@@ -32,13 +32,23 @@ def index(request):
             return render(request, "index.html", {"error": "用户名或者密码错误"})
         else:
             auth.login(request, user)  # 记录用户的登陆状态
-            return HttpResponseRedirect("/manage/")
+            return HttpResponseRedirect("/project/")
 
 
-# 登陆成功，跳转的页面
+# 登陆成功，默认跳转项目管理页面
 @login_required
-def manage(request):  # 登陆成功跳转页
-    return render(request, "manage.html")
+def project_manage(request):  # 登陆成功跳转页
+    return render(request, "project.html")
+
+
+@login_required
+def module_manage(request):  # 模块管理页面
+    return render(request, "module.html")
+
+
+@login_required
+def help_manage(request):  # 帮助管理页面
+    return render(request, "help.html")
 
 
 @login_required
