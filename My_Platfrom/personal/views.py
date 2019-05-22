@@ -52,9 +52,17 @@ def help_manage(request):  # 帮助管理页面
 
 
 @login_required
+def setting_manage(request):  # 设置页面
+    return render(request, "setting.html")
+
+
+@login_required
 def logout(request):  # 退出并清除缓存
     auth.logout(request)
     return HttpResponseRedirect("/index/")
+
+
+
 
 
 

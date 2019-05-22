@@ -25,7 +25,8 @@ urlpatterns = [
     path('project/', views.project_manage),
     path('module/', views.module_manage),
     path('help/', views.help_manage),
-    path('logout/', views.logout)
+    path('logout/', views.logout),
+    path('setting/', views.setting_manage)
 ]
 
 
