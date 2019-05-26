@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from personal.models.project import Project
 
 
 # Create your views here.
@@ -34,16 +35,6 @@ def index(request):
             auth.login(request, user)  # 记录用户的登陆状态
             return HttpResponseRedirect("/project/")
 
-
-# 登陆成功，默认跳转项目管理页面
-@login_required
-def project_manage(request):  # 登陆成功跳转页
-    return render(request, "project.html")
-
-
-@login_required
-def module_manage(request):  # 模块管理页面
-    return render(request, "module.html")
 
 
 @login_required

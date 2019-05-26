@@ -15,18 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from personal import views
+from personal.views import login_views
+from personal.views import project_views
+from personal.views import module_views
 
 urlpatterns = [
-    path('index/', views.index),
-    path('', views.index),  # 当url后面不输入路径的时候，也可以进入登陆页面
+    path('index/', login_views.index),
+    path('', login_views.index),  # 当url后面不输入路径的时候，也可以进入登陆页面
     path('admin/', admin.site.urls),
-    path('accounts/login/', views.index),
-    path('project/', views.project_manage),
-    path('module/', views.module_manage),
-    path('help/', views.help_manage),
-    path('logout/', views.logout),
-    path('setting/', views.setting_manage)
+    path('accounts/login/', login_views.index),
+    path('help/', login_views.help_manage),
+    path('logout/', login_views.logout),
+    path('setting/', login_views.setting_manage),
+
+    # project管理
+    path('project/', project_views.project_manage),
+    path('project/add_project/', project_views.add_project),
+    path('project/edit_project/', project_views.edit_project),
+
+    path('module/', module_views.module_manage)
+
+
 ]
 
 
