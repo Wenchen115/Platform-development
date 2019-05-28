@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from personal.models.project import Project
 from django.http import HttpResponse, HttpResponseRedirect
+from personal.forms import ProjectForm
 
 
 # 登陆成功，默认跳转项目管理页面
@@ -36,11 +37,12 @@ def add_project(request):
 
 
 @login_required
-def edit_project(request):
+def edit_project(request, pid):
     """
     编辑项目
     :param request:
     :return:
     """
     if request.method == "GET":
-        return render(request, "project.html", {"type": "edit"})
+        form = ProjectForm()
+        return render(request, "project.html", {"type": "edit", "form": form})

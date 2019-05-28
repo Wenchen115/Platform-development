@@ -81,7 +81,7 @@
                     {% endif %}
                   </td>
                   <td>{{project.create_time | date:"Y-m-d H:i:s"}}</td>
-                    <td><a href="/project/edit_project/"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <td><a href="/project/edit_project/{{project.id}}/"><i class="glyphicon glyphicon-pencil"></i></a>
                         <a href="/project/delete_project"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
@@ -92,7 +92,7 @@
           {% endif %}
 
           <!--添加项目-->
-          {% if type == "edit" %}
+          {% if type == "add" %}
           <h4 class="page-header">添加项目</h4>
             <form class="form-horizontal" method="post" action="/project/add_project/">
 
@@ -135,8 +135,12 @@
           {% endif %}
 
            <!--编辑项目-->
-          {% if type == "add" %}
-          <h4 class="page-header">编辑项目</h4>
+          {% if type == "edit" %}
+          <h4 class="sub-header">编辑项目</h4>
+          <form action="/your-name/" method="post">
+            {{form}}
+            <input type="submit" value="Submit">
+          </form>
 
           {% endif %}
 
