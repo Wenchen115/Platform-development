@@ -33,7 +33,7 @@
           <ul class="nav nav-sidebar">
             <li><a href="/project/"><i class="glyphicon glyphicon-th-large"></i>项目管理 <span class="sr-only">(current)</span></a></li>
             <!--<li><a href="#"></a></li>-->
-            <li class="active"><a href="#"><i class="glyphicon glyphicon-th"></i> 模块管理</a></li>
+            <li class="active"><a href="/module/"><i class="glyphicon glyphicon-th"></i> 模块管理</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href=""><i class="glyphicon glyphicon-th-list"></i> 用例管理</a></li>
@@ -45,46 +45,87 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h4 class="page-header">模块列表</h4>
-
-
-          <h2 class="sub-header">Section title</h2>
+           {% if type == "list" %}
+          <h4 class="page-header">模块列表
+            <button class="btn btn-sm btn-primary"
+                    type="button"
+                    style="float: right;"
+                    onclick="location.href='/module/add_module/'"
+            >创建</button>
+          </h4>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>ID</th>
+                  <th>名称</th>
+                  <th>描述</th>
+                  <th>项目</th>
+                  <th>创建时间</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody>
+              {%for module in modules%}
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td>{{module.id}}</td>
+                  <td>{{module.name}}</td>
+                  <td>{{module.describe}}</td>
+                  <td>{{module.project}}</td>
+                  <td>{{module.create_time | date:"Y-m-d H:i:s"}}</td>
+                    <td><a href="/module/edit_module/{{module.id}}/"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="/module/delete_module/{{module.id}}/"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
+              {% endfor%}
               </tbody>
             </table>
           </div>
+          {% endif %}
+
+          <!--添加模块-->
+          {% if type == "add" %}
+          <h4 class="page-header">添加模块</h4>
+            <form class="form-horizontal" method="post" action="/module/add_module/">
+
+    <div class="control-group">
+          <label class="control-label">项目</label>
+          <div class="controls">
+            {{form.project}}
+          </div>
+        </div>
+
+    <div class="control-group">
+          <label class="control-label">名称</label>
+          <div class="controls">
+            {{form.name}}
+          </div>
+        </div>
+
+    <div class="control-group">
+          <label class="control-label">描述</label>
+          <div class="controls">
+              {{form.describe}}
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <button class="btn btn-success">保存</button>
+          </div>
+        </div>
+  </form>
+          {% endif %}
+
+          <!--编辑模块-->
+          {% if type == "edit" %}
+          <h4 class="sub-header">编辑模块</h4>
+          <form action="/module/edit_module/{{id}}" method="post">
+            {{ form }}
+            <input type="submit" class="btn btn-success" value="保存">
+          </form>
+          {% endif %}
+
         </div>
       </div>
     </div>
