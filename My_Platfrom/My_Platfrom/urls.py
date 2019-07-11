@@ -16,7 +16,10 @@ urlpatterns = [
     path('project/', include('project_app.urls')),
 
     # module管理
-    path('module/', include('module_app.urls'))
+    path('module/', include('module_app.urls')),
+
+    # 用例管理
+    path('testcase/', include('testcase_app.urls'))
 
 
 
