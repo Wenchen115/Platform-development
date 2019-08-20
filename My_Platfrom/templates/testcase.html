@@ -104,6 +104,29 @@
                 <textarea id="result" class="form-control" rows="10" name="textarea"></textarea>
             </div>
 
+            <div style="margin-top: 30px;">
+                <p>断言结果：</p>
+                <textarea id="assert_text" class="form-control" rows="5" name="textarea"></textarea>
+            </div>
+            <div style="margin-top: 20px;">
+                <label>项目:</label>
+                <select class="selectpicker">
+                      <option>Mustard</option>
+                      <option>Ketchup</option>
+                      <option>Barbecue</option>
+                </select>
+
+                <label>模块:</label>
+                <select class="selectpicker">
+                      <option>Mustard</option>
+                      <option>Ketchup</option>
+                      <option>Barbecue</option>
+                </select>
+            </div>
+             <div style="float: right;margin-right: 10px;">
+                <button type="button" class="btn btn-primary" onclick="saveFun()">保存</button>
+            </div>
+
           {% endif %}
         </div>
       </div>

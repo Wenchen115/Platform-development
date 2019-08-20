@@ -9,6 +9,9 @@ urlpatterns = [
     path('delete_project/<int:pid>/', views.delete_project),
     path('edit_project/<int:pid>/', views.edit_project),
 
+    # 接口
+    path('get_project_list/', views.edit_project),
+
 
 ]
 
