@@ -10,7 +10,7 @@ urlpatterns = [
     path('edit_project/<int:pid>/', views.edit_project),
 
     # 接口
-    path('get_project_list/', views.edit_project),
+    path('get_project_list/', views.get_project_list),
 
 
 ]

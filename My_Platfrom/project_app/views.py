@@ -89,7 +89,7 @@ def get_project_list(request):
         project_list = []
         for pro in project:
             project_list.append(pro.name)
-        return JsonResponse({"success": "True", "result": project_list})
+        return JsonResponse({"status": 10200, "message": "请求成功", "data": project_list})
         pass
     else:
-        return JsonResponse({"success": "False", "result": "请求方法错误"})
+        return JsonResponse({"status": 10101, "message": "请求方法错误"})

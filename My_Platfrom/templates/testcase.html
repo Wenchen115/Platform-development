@@ -94,7 +94,7 @@
             </div><!-- /input-group -->
             <p style="color:#8B8989">说明：以字典的方式设置参数，如：{"id":1, "name":"名称"}</p>
 
-
+            ProjectInit("project_name")
             <div style="float: right;margin-right: 10px;">
             <button type="button" class="btn btn-primary" onclick="jsFun()">发送</button>
             </div>
@@ -110,14 +110,11 @@
             </div>
             <div style="margin-top: 20px;">
                 <label>项目:</label>
-                <select class="selectpicker">
-                      <option>Mustard</option>
-                      <option>Ketchup</option>
-                      <option>Barbecue</option>
+                <select class="selectpicker" id="project_name">
                 </select>
 
                 <label>模块:</label>
-                <select class="selectpicker">
+                <select class="selectpicker" id="module_name">
                       <option>Mustard</option>
                       <option>Ketchup</option>
                       <option>Barbecue</option>
